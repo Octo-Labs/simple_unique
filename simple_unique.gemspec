@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = SimpleUnique::VERSION
   gem.authors       = ["Jeremy Green"]
   gem.email         = ["jeremy@octolabs.com"]
-  gem.description   = %q{Validations for AWS::Record::Model}
-  gem.summary       = %q{Validations for AWS::Record::Model}
+  gem.description   = %q{A simple gem to add `validates_uniqueness_of` to `AWS::Record::Model` supplied by `aws-sdk`.}
+  gem.summary       = %q{A simple gem to add `validates_uniqueness_of` to `AWS::Record::Model` supplied by `aws-sdk`.}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
