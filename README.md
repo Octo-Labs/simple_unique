@@ -1,12 +1,13 @@
-# AwsModelValidations
+# SimpleUnique 
 
-TODO: Write a gem description
+A simple gem to add `validates_uniqueness_of` to `AWS::Record::Model`
+supplied by `aws-sdk`.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'aws_model_validations'
+    gem 'simple_unique'
 
 And then execute:
 
@@ -14,11 +15,17 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install aws_model_validations
+    $ gem install simple_unique 
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+    def Person < AWS::Record::Model
+      string_attr :name
+      validates_uniqueness_of :name
+    end
+```
+
 
 ## Contributing
 

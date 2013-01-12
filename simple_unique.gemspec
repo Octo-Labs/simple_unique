@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'aws_model_validations/version'
+require 'simple_unique/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "aws_model_validations"
-  gem.version       = AwsModelValidations::VERSION
+  gem.name          = "simple_unique"
+  gem.version       = SimpleUnique::VERSION
   gem.authors       = ["Jeremy Green"]
   gem.email         = ["jeremy@octolabs.com"]
   gem.description   = %q{Validations for AWS::Record::Model}

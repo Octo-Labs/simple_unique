@@ -1,4 +1,4 @@
-require 'aws_model_validations/validations/uniqueness'
+require 'simple_unique/validations/uniqueness'
 
 module AWS
   module Record
