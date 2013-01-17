@@ -24,6 +24,21 @@ describe 'model validations' do
       widg.errors[:name].should == ['has already been taken']
     end
 
+    it 'should prevent invalid records from being saved' do
+      klass.string_attr :name
+      klass.validates_uniqueness_of :name
+      widg = klass.new(:name => "Turd Furguson")
+      widg.valid?.should be_true
+      widg.save
+      sleep(2) # Allow a couple of seconds for SimpleDB to catch up
+
+      widg = klass.new(:name => "Turd Furguson")
+      widg.valid?.should be_false
+      widg.errors[:name].should == ['has already been taken']
+      widg.save
+      klass.count.should == 1
+    end
+
     it 'should only allow one record with a given attribute value within a given scope' do
       klass.string_attr :name
       klass.string_attr :category
