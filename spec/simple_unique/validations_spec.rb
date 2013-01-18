@@ -111,6 +111,33 @@ describe 'model validations' do
 
   end
 
+
+  
+  describe "validation with SimpleDB.consistent_read" do
+    before(:each) do
+      klass.string_attr :name
+      klass.validates_uniqueness_of :name
+    end
+    it 'should only allow one record with a given attribute value' do
+      10.times do
+        #sleep(2) # make sure the first one doesn't fail....?
+        random = rand(1000000000)
+        name = "Turd Furguson #{random}"
+        widg = klass.new(:name => name)
+        valid = widg.valid?
+        #puts name
+        #puts widg.errors
+        valid.should be_true
+        widg.save
+        #sleep(2) # Allow a couple of seconds for SimpleDB to catch up
+
+        widg = klass.new(:name => name)
+        widg.valid?.should be_false
+        widg.errors[:name].should == ['has already been taken']
+      end
+    end
+  end
+
 end
 
 

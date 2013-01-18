@@ -18,7 +18,9 @@ module AWS
           relation = relation.where(scope_item.to_sym => scope_value)
         end
 
-        existing_record = relation.where(attribute_name.to_sym => value).first
+        existing_record = SimpleDB.consistent_reads do
+          relation.where(attribute_name.to_sym => value).first
+        end
         taken = !existing_record.nil?
 
         record.errors.add(attribute_name, message) if taken #blank
