@@ -3,6 +3,10 @@
 A simple gem to add `validates_uniqueness_of` to `AWS::Record::Model`
 supplied by `aws-sdk`.
 
+[![Gem Version](https://badge.fury.io/rb/simple_unique.png)](http://badge.fury.io/rb/simple_unique)
+[![Code Climate](https://codeclimate.com/repos/52f5dc34695680672d00c3b6/badges/3944be4831afc37624e9/gpa.png)](https://codeclimate.com/repos/52f5dc34695680672d00c3b6/feed)
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
